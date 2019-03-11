@@ -1,6 +1,11 @@
 Rails.application.routes.draw do
   namespace :api do
+    get "/users" => "users#index"
     post "/users" => "users#create"
+    get "/users/:id" => "users#show"
+    patch "/users/:id" => "users#update"
+    delete "/users/:id" => "users#destroy"
+
 
     post "/sessions" => "sessions#create"
 
@@ -8,7 +13,7 @@ Rails.application.routes.draw do
     post '/lists' => 'lists#create'
     get '/lists/:id' => 'lists#show'
     patch '/lists/:id' => 'lists#update'
-    delete '/lists/:id' => 'lists#destroy'
+    delete '/lists/:id' => 'lists#destroy' 
 
     get '/tasks' => 'tasks#index'
     post '/tasks' => 'tasks#create'
