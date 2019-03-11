@@ -1,6 +1,6 @@
 class List < ApplicationRecord
   belongs_to :user
-  has_many :tasks, throughb :user
+  has_many :tasks
 
   def complete_all_tasks!
       tasks.update(complete: true)

@@ -1,6 +1,6 @@
 class Task < ApplicationRecord
   belongs_to :list
-  has_many :user, through: :list
+  has_many :users, through: :list
 
     def toggle_complete!
         update(complete: !complete)

@@ -6,4 +6,4 @@ json.priority task.priority
 json.status task.status
 
 json.list_id task.list_id
-# json.users task.users
+json.user_id task.user_id
