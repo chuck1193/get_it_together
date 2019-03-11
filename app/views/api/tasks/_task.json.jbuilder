@@ -5,5 +5,5 @@ json.content task.content
 json.priority task.priority
 json.status task.status
 
-json.lists task.list
-json.users task.user
+json.list_id task.list_id
+# json.users task.users

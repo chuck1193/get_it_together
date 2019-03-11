@@ -1,12 +1,9 @@
 class Task < ApplicationRecord
   belongs_to :list
+  has_many :user, through: :list
 
     def toggle_complete!
         update(complete: !complete)
-      end
-
-      def toggle_favorite!
-        update(favorite: !favorite)
       end
 
       def overdue?

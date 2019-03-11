@@ -1,19 +1,18 @@
 class Api::TasksController < ApplicationController
-  belongs_to :user, through :list
 
   def index
-    @tasks = Tasks.all
+    @tasks = Task.all
     render 'index.json.jbuilder'
     
   end
 
   def create
-    @task = Review.new(
-                            name: params[:name],
-                            content: params[:content],
-                            priority: params[:priority],
-                            status: params[:status]
-                            )
+    @task = Task.new(
+                    name: params[:name],
+                    content: params[:content],
+                    priority: params[:priority],
+                    status: params[:status]
+                    )
     if @task.save
 
       render 'show.json.jbuilder'
@@ -32,7 +31,8 @@ class Api::TasksController < ApplicationController
 
     @task.name = params[:name] || @task.name
     @task.content = params[:content] || @task.content
-    @task.priority = params[:status] || @task.status
+    @task.priority = params[:priority] || @task.priority
+    @task.status = params[:status] || @task.status
  
     if @task.save
       render 'show.json.jbuilder'

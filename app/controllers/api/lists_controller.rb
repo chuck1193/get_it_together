@@ -1,6 +1,4 @@
 class Api::ListsController < ApplicationController
-  # has_many :tasks
-  # belongs_to :user
 
   def index
     @lists = List.all 
@@ -9,8 +7,8 @@ class Api::ListsController < ApplicationController
 
     def create
       @list = List.new(
-                              name: params[:name]
-                              )
+                      name: params[:name]
+                      )
       if @list.save
         render 'show.json.jbuilder'
       else
