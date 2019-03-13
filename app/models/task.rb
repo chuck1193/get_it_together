@@ -2,6 +2,10 @@ class Task < ApplicationRecord
   belongs_to :list
   has_many :users, through: :list
 
+  enum priority: {highest: 1, high: 2, medium: 3, low: 4, lowest: 5}
+
+  enum status: {pending: 0, complete: 1, waiting: 2}
+
     def toggle_complete!
         update(complete: !complete)
       end
@@ -22,7 +26,4 @@ class Task < ApplicationRecord
         end
       end
 
-      def snooze_hour!
-        update(deadline: deadline + 1.hour)
-      end
 end
