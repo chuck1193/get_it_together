@@ -2,6 +2,7 @@
 json.id list.id
 json.name list.name
 
+
 json.tasks do
   json.array! list.tasks.each do |task|
     json.id task.id

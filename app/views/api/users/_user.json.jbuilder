@@ -7,6 +7,9 @@ json.lists do
   json.array! user.lists, partial: 'api/lists/list', as: :list
 end
 
+json.tasks do
+  json.array! user.tasks, partial: 'api/tasks/task', as: :task
+end
 # json.lists do
 #   json.array! user.tasks.each do |list|
 #     json.id list.id

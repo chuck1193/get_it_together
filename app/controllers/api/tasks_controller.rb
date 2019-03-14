@@ -1,21 +1,21 @@
 class Api::TasksController < ApplicationController
 
   def index
-    @tasks = Task.all
+    @tasks = current_user.tasks
     render 'index.json.jbuilder'
     
   end
 
   def create
     @task = Task.new(
+                    list_id: params[:list_id],
                     name: params[:name],
-                    content: params[:content],
+                    content:params[:content],
                     priority: params[:priority],
                     status: params[:status],
                     deadline: params[:deadline]
                     )
     if @task.save
-
       render 'show.json.jbuilder'
     else
       render json: {errors: @task.errors.full_messages},status: :unprocessable_entity
