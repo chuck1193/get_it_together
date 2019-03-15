@@ -1,4 +1,5 @@
 class Api::TasksController < ApplicationController
+   # before_action :authenticate_user
 
   def index
     @tasks = current_user.tasks
@@ -12,7 +13,7 @@ class Api::TasksController < ApplicationController
                     name: params[:name],
                     content:params[:content],
                     priority: params[:priority],
-                    status: params[:status],
+                    status: "pending",
                     deadline: params[:deadline]
                     )
     if @task.save

@@ -15,7 +15,7 @@ class Task < ApplicationRecord
       end
 
       def increment_priority!
-        if priority < 10
+        if priority < 6
           update(priority: priority + 1)
         end
       end
@@ -24,6 +24,10 @@ class Task < ApplicationRecord
         if priority > 1 
           update(priority: priority - 1)
         end
+      end
+
+      def deadline_checker
+        
       end
 
 end
