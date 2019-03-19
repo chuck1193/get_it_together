@@ -14,7 +14,8 @@ class Api::TasksController < ApplicationController
                     content:params[:content],
                     priority: params[:priority],
                     status: "pending",
-                    deadline: params[:deadline]
+                    deadline: params[:deadline],
+                    category: params[:category]
                     )
     if @task.save
       render 'show.json.jbuilder'
@@ -36,6 +37,7 @@ class Api::TasksController < ApplicationController
     @task.priority = params[:priority] || @task.priority
     @task.status = params[:status] || @task.status
     @task.deadline = params[:status] || @task.deadline
+    @task.category = params[:category] || @task.category
  
     if @task.save
       render 'show.json.jbuilder'
