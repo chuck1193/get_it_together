@@ -1,5 +1,7 @@
 {
   "name": "get_it_together",
   "private": true,
-  "dependencies": {}
+  "dependencies": {
+    "highcharts-vue": "^1.2.0"
+  }
 }
