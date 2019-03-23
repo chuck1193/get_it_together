@@ -12,7 +12,5 @@ json.tasks do
 end
 
 
-# json.invitations do
-#   json.array! user.lists.invitations, partial: 'api/invitations/invitation', as: :invitation
-# end
+
 

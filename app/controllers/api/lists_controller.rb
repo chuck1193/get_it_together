@@ -1,5 +1,5 @@
 class Api::ListsController < ApplicationController
-  before_action :authenticate_user 
+  before_action :authenticate_user || invited_guests
 
   def index
     @lists = current_user.lists
@@ -20,11 +20,8 @@ class Api::ListsController < ApplicationController
 
     def show
       @list = List.find(params[:id])
-      invited_ids = @list.users.pluck(:id)
 
-      # if @list.user_id == user.id || invited_ids.include?(current_user.id)
         render 'show.json.jbuilder' 
-      # end
     end
 
     def update
