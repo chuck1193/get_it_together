@@ -1,5 +1,5 @@
 class Api::TasksController < ApplicationController
-   # before_action :authenticate_user
+   before_action :authenticate_user
 
   def index
     @tasks = current_user.tasks
@@ -30,7 +30,7 @@ class Api::TasksController < ApplicationController
   end
 
   def update
-    @Task = Task.find(params[:id])
+    @task = Task.find(params[:id])
 
     @task.name = params[:name] || @task.name
     @task.content = params[:content] || @task.content

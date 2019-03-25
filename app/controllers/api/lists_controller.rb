@@ -1,5 +1,5 @@
 class Api::ListsController < ApplicationController
-  before_action :authenticate_user || invited_guests
+  before_action :authenticate_user 
 
   def index
     @lists = current_user.lists
