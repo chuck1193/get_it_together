@@ -1,8 +1,12 @@
 json.id list.id
 json.name list.name
 
-json.tasks do
-  json.array! list.tasks, partial: "api/tasks/task", as: :task
+json.pending_tasks do
+  json.array! list.tasks.pending, partial: "api/tasks/task", as: :task
+end
+
+json.complete_tasks do
+  json.array! list.tasks.complete, partial: "api/tasks/task", as: :task
 end
 
 json.invited_guests do 

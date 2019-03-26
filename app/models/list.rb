@@ -4,15 +4,7 @@ class List < ApplicationRecord
   has_many :users, through: :invitations
   has_many :tasks
 
-  def complete_all_tasks!
-      tasks.update(complete: true)
-    end
-
-
-    def incomplete_tasks
-      tasks.select { |task| !task.complete }
-      # tasks.where(complete: false)
-    end
+  
 
 
 end

@@ -2,9 +2,12 @@ class Api::TasksController < ApplicationController
    before_action :authenticate_user
 
   def index
-    @tasks = current_user.tasks
+    if params[:status]
+      @tasks = current_user.tasks.where(status: params[:status])
+    else
+      @tasks = current_user.tasks
+    end
     render 'index.json.jbuilder'
-    
   end
 
   def create
